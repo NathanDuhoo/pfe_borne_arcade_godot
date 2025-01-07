@@ -90,6 +90,7 @@ func stop_move_back():
 # Saut
 func jump():
 	if is_on_floor():
+		print("Jump called")
 		target_velocity.y = jump_force
 		has_double_jumped = false
 	elif not has_double_jumped:
