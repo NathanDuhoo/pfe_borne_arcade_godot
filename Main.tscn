@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtbky5x6iqlws"]
+[gd_scene load_steps=7 format=3 uid="uid://dtbky5x6iqlws"]
 
 [ext_resource type="Script" path="res://fps.gd" id="1_0ilsh"]
 [ext_resource type="PackedScene" uid="uid://cfsde5bxeqxy3" path="res://Player.tscn" id="1_pc7mc"]
 [ext_resource type="Script" path="res://rotating_section.gd" id="3_dybc4"]
-[ext_resource type="PackedScene" uid="uid://bqsd5t1vj7tr5" path="res://untitled.glb" id="3_l2hlo"]
+[ext_resource type="PackedScene" uid="uid://c2ykqycurduwg" path="res://untitled.glb" id="3_l2hlo"]
+[ext_resource type="AudioStream" uid="uid://07lfs53dc6ct" path="res://music/song.wav" id="5_pwf4l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_30q01"]
 size = Vector3(10, 10, 50)
@@ -12,15 +13,16 @@ size = Vector3(10, 10, 50)
 script = ExtResource("1_0ilsh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 10, 41)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.783194, 1.83904, -41.0161)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_pc7mc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98307, 0, -76.8067)
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 32.8261, 27)
+transform = Transform3D(1, 0, 0, 0, 0.926042, 0.377421, 0, -0.377421, 0.926042, -0.783194, 17.6651, -55.0161)
 size = 19.0
 
 [node name="FPSLabel" type="Label" parent="."]
@@ -41,6 +43,11 @@ script = ExtResource("3_dybc4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.246, 0, 1.99999)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RotatingSection/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -258.077, 0, 1.12057e-05)
 shape = SubResource("BoxShape3D_30q01")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pwf4l")
+autoplay = true
 
 [connection signal="body_entered" from="RotatingSection/Area3D" to="RotatingSection" method="_on_area_3d_body_entered"]
