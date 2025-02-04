@@ -1,0 +1,389 @@
+[gd_scene load_steps=35 format=3 uid="uid://cx6i0bl2twj5o"]
+
+[ext_resource type="PackedScene" uid="uid://dti2w2cwv46yj" path="res://map/model/map.glb" id="1_by61u"]
+[ext_resource type="Shader" path="res://shader_godot/poison.gdshader" id="2_ll1pk"]
+[ext_resource type="Script" path="res://scripts_godot/map.gd" id="2_o5kgn"]
+[ext_resource type="Texture2D" uid="uid://dd3l8auui4ncv" path="res://assets - blender/textures/poison.png" id="5_7d4lx"]
+[ext_resource type="Script" path="res://scripts_godot/losing_life.gd" id="5_7r40g"]
+[ext_resource type="Shader" path="res://shader_godot/fumee.gdshader" id="5_8qg8m"]
+[ext_resource type="Script" path="res://scripts_godot/laser_trigger.gd" id="6_koqju"]
+[ext_resource type="Texture2D" uid="uid://i84y4r4awtpj" path="res://map/images/laser_exclamation_mark.png" id="7_i1w80"]
+[ext_resource type="PackedScene" uid="uid://bbtb5qtrnovpk" path="res://tscn_godot/laser_scene.tscn" id="7_snknl"]
+[ext_resource type="Shader" path="res://shader_godot/lave.gdshader" id="8_dpqpm"]
+[ext_resource type="Script" path="res://scripts_godot/plateform.gd" id="8_dwltr"]
+[ext_resource type="Texture2D" uid="uid://b8ogd276gs27" path="res://assets - blender/textures/lave.jpg" id="9_q5gun"]
+[ext_resource type="Script" path="res://scripts_godot/door_trigger.gd" id="11_ytxof"]
+[ext_resource type="Script" path="res://scripts_godot/cage.gd" id="12_roulp"]
+[ext_resource type="Script" path="res://tscn_godot/win_zone.gd" id="15_fcyr0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_28lg0"]
+frequency = 0.0048
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pibhc"]
+seamless = true
+seamless_blend_skirt = 0.252
+noise = SubResource("FastNoiseLite_28lg0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ki20"]
+render_priority = 0
+shader = ExtResource("2_ll1pk")
+shader_parameter/time_speed = 0.2
+shader_parameter/distortion_strength = 0.2
+shader_parameter/lava_texture = ExtResource("5_7d4lx")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_pibhc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqkt7"]
+size = Vector3(5.29639, 8.32825, 7.02271)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e53s6"]
+render_priority = 0
+shader = ExtResource("5_8qg8m")
+shader_parameter/time_speed = 1.0
+shader_parameter/distortion_strength = 0.2
+shader_parameter/lava_texture = SubResource("NoiseTexture2D_pibhc")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_pibhc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_drbgk"]
+size = Vector3(0.763672, 4.45172, 14.6802)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0i73v"]
+size = Vector3(290.676, 32.5936, 189.615)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5f3m"]
+size = Vector3(1381.53, 18.8308, 57.8959)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gx3ge"]
+render_priority = 0
+shader = ExtResource("8_dpqpm")
+shader_parameter/time_speed = 0.2
+shader_parameter/distortion_strength = 0.2
+shader_parameter/emission_strength = 0.0
+shader_parameter/red_boost = 3.0
+shader_parameter/color_balance = 0.8
+shader_parameter/lava_texture = ExtResource("9_q5gun")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_pibhc")
+
+[sub_resource type="GDScript" id="GDScript_jx1bt"]
+script/source = "extends Node3D
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xm1ic"]
+size = Vector3(19.6157, 41.2832, 6.14624)
+
+[sub_resource type="Animation" id="Animation_84udy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(646.236, 40, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f6tp8"]
+resource_name = "new_animation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.06667, 3.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(646.236, 40, 0), Vector3(646.236, -5.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ywag"]
+_data = {
+"RESET": SubResource("Animation_84udy"),
+"new_animation": SubResource("Animation_f6tp8")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rv0a3"]
+size = Vector3(125.279, 60, 113.186)
+
+[sub_resource type="Animation" id="Animation_0bcud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CanvasLayer/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CanvasLayer/TextureRect:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nohdk"]
+resource_name = "new_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CanvasLayer/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.3, 0.3), Vector2(0.2, 0.2), Vector2(0.3, 0.3), Vector2(0.2, 0.2), Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CanvasLayer/TextureRect:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-30, -30), Vector2(0, 0), Vector2(-30, -30), Vector2(0, 0), Vector2(-30, -30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ly5f"]
+_data = {
+"RESET": SubResource("Animation_0bcud"),
+"new_animation": SubResource("Animation_nohdk")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ya4bs"]
+size = Vector3(0.001, 51.5019, 120.214)
+
+[node name="map" instance=ExtResource("1_by61u")]
+script = ExtResource("2_o5kgn")
+cage1 = NodePath("cage1 ")
+cage2 = NodePath("cage2 ")
+cage3 = NodePath("cage3 ")
+cage4 = NodePath("cage4 ")
+
+[node name="vide12" parent="." index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="poteau _019" parent="." index="30"]
+visible = false
+
+[node name="poteau _020" parent="." index="31"]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="sol4" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sol4/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14819, 3.66412, -0.154175)
+shape = SubResource("BoxShape3D_hqkt7")
+
+[node name="vide1" parent="." index="77"]
+surface_material_override/0 = SubResource("ShaderMaterial_e53s6")
+
+[node name="vide2" parent="." index="78"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 153.557, -7.69013, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide3" parent="." index="79"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 236.778, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide4" parent="." index="80"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 286.992, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide5" parent="." index="81"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 286.992, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="plateform2 _010" parent="." index="92"]
+script = ExtResource("8_dwltr")
+
+[node name="Area3D" type="Area3D" parent="plateform2 _010" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8188, 0, 0)
+script = ExtResource("6_koqju")
+laser_scene = ExtResource("7_snknl")
+texture_rect_path = NodePath("../../CanvasLayer/TextureRect")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plateform2 _010/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719879, 2.00261, 2.44052)
+shape = SubResource("BoxShape3D_drbgk")
+
+[node name="plateform2 _011" parent="." index="93"]
+script = ExtResource("8_dwltr")
+
+[node name="Area3D" type="Area3D" parent="plateform2 _011" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8188, 0, -1.92206)
+script = ExtResource("6_koqju")
+laser_scene = ExtResource("7_snknl")
+texture_rect_path = NodePath("../../CanvasLayer/TextureRect")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plateform2 _011/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719879, 2.00261, 0.118528)
+shape = SubResource("BoxShape3D_drbgk")
+
+[node name="plateform2 _012" parent="." index="94"]
+script = ExtResource("8_dwltr")
+
+[node name="Area3D" type="Area3D" parent="plateform2 _012" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8188, 0, -1.90611)
+script = ExtResource("6_koqju")
+laser_scene = ExtResource("7_snknl")
+texture_rect_path = NodePath("../../CanvasLayer/TextureRect")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plateform2 _012/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719879, 2.00261, -0.292615)
+shape = SubResource("BoxShape3D_drbgk")
+
+[node name="plateform2 _014" parent="." index="95"]
+script = ExtResource("8_dwltr")
+
+[node name="Area3D" type="Area3D" parent="plateform2 _014" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8188, 0, -1.54231)
+script = ExtResource("6_koqju")
+laser_scene = ExtResource("7_snknl")
+texture_rect_path = NodePath("../../CanvasLayer/TextureRect")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plateform2 _014/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719879, 2.00261, -4.90262)
+shape = SubResource("BoxShape3D_drbgk")
+
+[node name="plateform2 _015" parent="." index="96"]
+script = ExtResource("8_dwltr")
+
+[node name="Area3D" type="Area3D" parent="plateform2 _015" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8188, 0, -1.93035)
+script = ExtResource("6_koqju")
+laser_scene = ExtResource("7_snknl")
+texture_rect_path = NodePath("../../CanvasLayer/TextureRect")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plateform2 _015/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719879, 2.00261, 0.0764942)
+shape = SubResource("BoxShape3D_drbgk")
+
+[node name="PoisonZone2" type="Area3D" parent="." index="107"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1380.25, -108.957, -58.2016)
+script = ExtResource("5_7r40g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PoisonZone2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.838, 84.9268, 94.3075)
+shape = SubResource("BoxShape3D_0i73v")
+
+[node name="PoisonZone" type="Area3D" parent="." index="108"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.833, -11.0079, -29.1008)
+script = ExtResource("5_7r40g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PoisonZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 690.265, -3.33098, 28.448)
+shape = SubResource("BoxShape3D_f5f3m")
+
+[node name="vide6" parent="." index="124"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 420.87, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide7" parent="." index="125"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 486.595, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide8" parent="." index="126"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 577.717, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide9" parent="." index="135"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 139.149, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_gx3ge")
+
+[node name="vide10" parent="." index="136"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 123.705, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_gx3ge")
+
+[node name="vide11" parent="." index="138"]
+surface_material_override/0 = SubResource("ShaderMaterial_e53s6")
+
+[node name="sol16 _001" parent="." index="139"]
+script = SubResource("GDScript_jx1bt")
+
+[node name="sol16 _002" parent="." index="140"]
+transform = Transform3D(5, 0, 0, 0, 4.5, 0, 0, 0, 20, 759.179, -3.24243, 0.410919)
+
+[node name="sol16 _003" parent="." index="141"]
+transform = Transform3D(5, 0, 0, 0, 4.5, 0, 0, 0, 20, 646.236, 40, 0)
+
+[node name="DoorTrigger" type="Area3D" parent="sol16 _003" index="1"]
+transform = Transform3D(0.0744218, 0, 0.997227, 0, 1, 0, -0.997227, 0, 0.0744218, 309.049, -1.84683, 7.47137)
+script = ExtResource("11_ytxof")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sol16 _003/DoorTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6111, -9.77792, -0.379669)
+shape = SubResource("BoxShape3D_xm1ic")
+
+[node name="DoorAnimationPlayer" type="AnimationPlayer" parent="sol16 _003/DoorTrigger" index="1"]
+root_node = NodePath("../../StaticBody3D")
+libraries = {
+"": SubResource("AnimationLibrary_2ywag")
+}
+
+[node name="AreaCage" type="Area3D" parent="." index="143"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2203.83, 0, 0)
+script = ExtResource("12_roulp")
+laser_scene = ExtResource("7_snknl")
+texture_rect_path = NodePath("../CanvasLayer/TextureRect")
+
+[node name="CageCollision" type="CollisionShape3D" parent="AreaCage" index="0"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.85181, -19.4364, 0.213866)
+shape = SubResource("BoxShape3D_rv0a3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="147"]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" index="0"]
+offset_left = 656.0
+offset_top = 654.0
+offset_right = 1168.0
+offset_bottom = 1166.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_i1w80")
+
+[node name="MoveTexture" type="AnimationPlayer" parent="CanvasLayer/TextureRect" index="0"]
+root_node = NodePath("../../../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_5ly5f")
+}
+
+[node name="WinZone" type="Area3D" parent="." index="149"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2243.19, 0, 0)
+script = ExtResource("15_fcyr0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9329, -41.0975, -0.0435619)
+shape = SubResource("BoxShape3D_ya4bs")
+
+[connection signal="body_entered" from="sol4/Area3D" to="sol4/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="sol4/Area3D" to="plateform2 _011/Area3D" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="plateform2 _010/Area3D" to="plateform2 _010/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="plateform2 _011/Area3D" to="plateform2 _011/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="plateform2 _012/Area3D" to="plateform2 _012/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="plateform2 _014/Area3D" to="plateform2 _014/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="plateform2 _015/Area3D" to="plateform2 _015/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="PoisonZone2" to="plateform2 _011/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="PoisonZone" to="plateform2 _011/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="sol16 _003/DoorTrigger" to="plateform2 _011/Area3D" method="_on_door_trigger_body_entered"]

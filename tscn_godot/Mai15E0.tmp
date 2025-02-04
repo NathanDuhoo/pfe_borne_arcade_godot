@@ -1,0 +1,180 @@
+[gd_scene load_steps=26 format=3 uid="uid://dtbky5x6iqlws"]
+
+[ext_resource type="PackedScene" uid="uid://cfsde5bxeqxy3" path="res://tscn_godot/Player.tscn" id="1_pc7mc"]
+[ext_resource type="Script" path="res://scripts_godot/rotating_section.gd" id="3_dybc4"]
+[ext_resource type="PackedScene" uid="uid://cx6i0bl2twj5o" path="res://tscn_godot/map.tscn" id="4_hsnir"]
+[ext_resource type="AudioStream" uid="uid://07lfs53dc6ct" path="res://music/song.wav" id="5_1cf5p"]
+[ext_resource type="Script" path="res://scripts_godot/windows.gd" id="6_8ggdq"]
+[ext_resource type="Script" path="res://scripts_godot/camera_3d_barnaby.gd" id="7_6gmvb"]
+[ext_resource type="Script" path="res://scripts_godot/camera_3d.gd" id="8_j71ug"]
+[ext_resource type="Script" path="res://scripts_godot/barnaby.gd" id="8_n1g66"]
+[ext_resource type="Script" path="res://scripts_godot/laser_trigger.gd" id="11_8fb0u"]
+[ext_resource type="Texture2D" uid="uid://x8pfapq6s4qh" path="res://map/Barnaby_animation/0.png" id="11_b8x65"]
+[ext_resource type="PackedScene" uid="uid://bbtb5qtrnovpk" path="res://tscn_godot/laser_scene.tscn" id="12_cq0xo"]
+[ext_resource type="Texture2D" uid="uid://df7dqqicj1cj2" path="res://map/Barnaby_animation/1.png" id="12_jdqon"]
+[ext_resource type="Texture2D" uid="uid://ixhyx71ldtnv" path="res://map/Barnaby_animation/2.png" id="13_2xqtq"]
+[ext_resource type="Texture2D" uid="uid://du18dj2d8lgv3" path="res://map/Barnaby_animation/3.png" id="14_5x4cn"]
+[ext_resource type="Texture2D" uid="uid://dmc554msg3voi" path="res://map/Barnaby_animation/4.png" id="15_hj6qi"]
+[ext_resource type="Texture2D" uid="uid://qydgqtf5f6ra" path="res://map/Barnaby_animation/5.png" id="16_nnxgx"]
+[ext_resource type="Texture2D" uid="uid://bd3g24qu5ph7n" path="res://map/Barnaby_animation/6.png" id="17_joefs"]
+[ext_resource type="Texture2D" uid="uid://3b313fcbx3hm" path="res://map/Barnaby_animation/7.png" id="18_5vu6y"]
+[ext_resource type="Texture2D" uid="uid://lmocjk5xcamq" path="res://map/Barnaby_animation/8.png" id="19_q2jbd"]
+[ext_resource type="Texture2D" uid="uid://dc1fmqbp3ooft" path="res://map/Barnaby_animation/9.png" id="20_jdddp"]
+[ext_resource type="Texture2D" uid="uid://c0xsy3ae0i66t" path="res://map/Barnaby_animation/10.png" id="21_ox4ok"]
+[ext_resource type="Script" path="res://scripts_godot/init_coord_reader.gd" id="22_f2er3"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bvhiw"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k1ef4"]
+size = Vector3(83.8765, 81.0078, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3lc51"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_b8x65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jdqon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2xqtq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5x4cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hj6qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5x4cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hj6qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5x4cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hj6qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5x4cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hj6qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5x4cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hj6qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5x4cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hj6qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nnxgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_joefs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5vu6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_q2jbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_jdddp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ox4ok")
+}],
+"loop": true,
+"name": &"barnaby",
+"speed": 8.0
+}]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("6_8ggdq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 10, -44.6349)
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_pc7mc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 171.411)
+
+[node name="FPSLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "alllo
+"
+
+[node name="RotatingSection" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 87)
+script = ExtResource("3_dybc4")
+
+[node name="map" parent="RotatingSection" instance=ExtResource("4_hsnir")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1cf5p")
+autoplay = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Camera3DBarnaby" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16462, -12.959)
+current = true
+script = ExtResource("7_6gmvb")
+
+[node name="Window" type="Window" parent="."]
+auto_translate_mode = 1
+own_world_3d = true
+position = Vector2i(0, 48)
+size = Vector2i(500, 500)
+
+[node name="TextureRect" type="TextureRect" parent="Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_bvhiw")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 180.899)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.0933436, 0.995634, 0, -0.995634, 0.0933436, 0, 25.8615, -348.288)
+current = true
+size = 19.0
+script = ExtResource("8_j71ug")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -36.6863, 2254.03)
+script = ExtResource("11_8fb0u")
+laser_scene = ExtResource("12_cq0xo")
+texture_rect_path = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.81132e-06, 31.4121, 58.6125)
+shape = SubResource("BoxShape3D_k1ef4")
+
+[node name="Barnaby" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(28, 0, 0, 0, 30, 0, 0, 0, 15, 0, 27.2101, -92.7261)
+sprite_frames = SubResource("SpriteFrames_3lc51")
+animation = &"barnaby"
+frame_progress = 0.785532
+script = ExtResource("8_n1g66")
+
+[node name="ServerNode" type="Node" parent="."]
+script = ExtResource("22_f2er3")

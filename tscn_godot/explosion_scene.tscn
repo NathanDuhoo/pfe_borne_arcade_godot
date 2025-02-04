@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmi85hloxnqdw"]
+
+[ext_resource type="Script" path="res://scripts_godot/explosion_scene.gd" id="1_5lha1"]
+
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kvnjb"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_5lha1")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+amount = 50
+speed_scale = 2.0
+mesh = SubResource("CylinderMesh_kvnjb")
+emission_shape = 1
+emission_sphere_radius = 1.0
+emission_colors = PackedColorArray(1, 0, 0, 1)
+spread = 180.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]

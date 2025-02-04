@@ -1,0 +1,356 @@
+[gd_scene load_steps=26 format=3 uid="uid://cx6i0bl2twj5o"]
+
+[ext_resource type="PackedScene" uid="uid://dti2w2cwv46yj" path="res://map/model/map.glb" id="1_by61u"]
+[ext_resource type="Shader" path="res://shader_godot/poison.gdshader" id="2_ll1pk"]
+[ext_resource type="Script" path="res://tscn_godot/map.gd" id="2_o5kgn"]
+[ext_resource type="Texture2D" uid="uid://dd3l8auui4ncv" path="res://assets - blender/textures/poison.png" id="5_7d4lx"]
+[ext_resource type="Script" path="res://scripts_godot/losing_life.gd" id="5_7r40g"]
+[ext_resource type="Shader" path="res://shader_godot/fumee.gdshader" id="5_8qg8m"]
+[ext_resource type="Script" path="res://scripts_godot/laser_trigger.gd" id="6_koqju"]
+[ext_resource type="PackedScene" uid="uid://bbtb5qtrnovpk" path="res://tscn_godot/laser_scene.tscn" id="7_snknl"]
+[ext_resource type="Shader" path="res://shader_godot/lave.gdshader" id="8_dpqpm"]
+[ext_resource type="Texture2D" uid="uid://b8ogd276gs27" path="res://assets - blender/textures/lave.jpg" id="9_q5gun"]
+[ext_resource type="Script" path="res://scripts_godot/door_trigger.gd" id="11_ytxof"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_28lg0"]
+frequency = 0.0048
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pibhc"]
+seamless = true
+seamless_blend_skirt = 0.252
+noise = SubResource("FastNoiseLite_28lg0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ki20"]
+render_priority = 0
+shader = ExtResource("2_ll1pk")
+shader_parameter/time_speed = 0.2
+shader_parameter/distortion_strength = 0.2
+shader_parameter/lava_texture = ExtResource("5_7d4lx")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_pibhc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqkt7"]
+size = Vector3(5.29639, 8.32825, 7.02271)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e53s6"]
+render_priority = 0
+shader = ExtResource("5_8qg8m")
+shader_parameter/time_speed = 1.0
+shader_parameter/distortion_strength = 0.2
+shader_parameter/lava_texture = SubResource("NoiseTexture2D_pibhc")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_pibhc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_drbgk"]
+size = Vector3(0.763672, 4.45172, 14.2375)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0i73v"]
+size = Vector3(290.676, 32.5936, 189.615)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5f3m"]
+size = Vector3(1381.53, 18.8308, 57.8959)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gx3ge"]
+render_priority = 0
+shader = ExtResource("8_dpqpm")
+shader_parameter/time_speed = 0.2
+shader_parameter/distortion_strength = 0.2
+shader_parameter/emission_strength = 0.0
+shader_parameter/red_boost = 3.0
+shader_parameter/color_balance = 0.8
+shader_parameter/lava_texture = ExtResource("9_q5gun")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_pibhc")
+
+[sub_resource type="GDScript" id="GDScript_jx1bt"]
+script/source = "extends Node3D
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xm1ic"]
+size = Vector3(19.6157, 41.2832, 6.14624)
+
+[sub_resource type="Animation" id="Animation_84udy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(646.236, 40, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f6tp8"]
+resource_name = "new_animation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.06667, 3.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(646.236, 40, 0), Vector3(646.236, -5.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ywag"]
+_data = {
+"RESET": SubResource("Animation_84udy"),
+"new_animation": SubResource("Animation_f6tp8")
+}
+
+[node name="map" instance=ExtResource("1_by61u")]
+script = ExtResource("2_o5kgn")
+
+[node name="vide12" parent="." index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="poteau _003" parent="." index="12"]
+visible = false
+
+[node name="poteau _002" parent="." index="13"]
+visible = false
+
+[node name="poteau _001" parent="." index="14"]
+visible = false
+
+[node name="poteau _004" parent="." index="15"]
+visible = false
+
+[node name="poteau _005" parent="." index="16"]
+visible = false
+
+[node name="poteau _006" parent="." index="17"]
+visible = false
+
+[node name="poteau _007" parent="." index="18"]
+visible = false
+
+[node name="poteau _008" parent="." index="19"]
+visible = false
+
+[node name="poteau _009" parent="." index="20"]
+visible = false
+
+[node name="poteau _010" parent="." index="21"]
+visible = false
+
+[node name="poteau _011" parent="." index="22"]
+visible = false
+
+[node name="poteau _012" parent="." index="23"]
+visible = false
+
+[node name="poteau _013" parent="." index="24"]
+visible = false
+
+[node name="poteau _014" parent="." index="25"]
+visible = false
+
+[node name="poteau _015" parent="." index="26"]
+visible = false
+
+[node name="poteau _016" parent="." index="27"]
+visible = false
+
+[node name="poteau _017" parent="." index="28"]
+visible = false
+
+[node name="poteau _018" parent="." index="29"]
+visible = false
+
+[node name="poteau _019" parent="." index="30"]
+visible = false
+
+[node name="poteau _020" parent="." index="31"]
+visible = false
+
+[node name="poteau _021" parent="." index="32"]
+visible = false
+
+[node name="poteau _022" parent="." index="33"]
+visible = false
+
+[node name="poteau _023" parent="." index="34"]
+visible = false
+
+[node name="poteau _024" parent="." index="35"]
+visible = false
+
+[node name="poteau _025" parent="." index="36"]
+visible = false
+
+[node name="poteau _026" parent="." index="37"]
+visible = false
+
+[node name="poteau _027" parent="." index="38"]
+visible = false
+
+[node name="poteau _028" parent="." index="39"]
+visible = false
+
+[node name="poteau _029" parent="." index="40"]
+visible = false
+
+[node name="poteau _030" parent="." index="41"]
+visible = false
+
+[node name="poteau _031" parent="." index="42"]
+visible = false
+
+[node name="poteau _032" parent="." index="43"]
+visible = false
+
+[node name="poteau _033" parent="." index="44"]
+visible = false
+
+[node name="poteau _034" parent="." index="45"]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="sol4" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sol4/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14819, 3.66412, -0.154175)
+shape = SubResource("BoxShape3D_hqkt7")
+
+[node name="vide1" parent="." index="77"]
+surface_material_override/0 = SubResource("ShaderMaterial_e53s6")
+
+[node name="vide2" parent="." index="78"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 153.557, -7.69013, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide3" parent="." index="79"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 236.778, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide4" parent="." index="80"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 286.992, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide5" parent="." index="81"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 286.992, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="Area3D" type="Area3D" parent="plateform2 _010" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8188, 0, 0)
+script = ExtResource("6_koqju")
+laser_scene = ExtResource("7_snknl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plateform2 _010/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719879, 2.00261, -5.80402)
+shape = SubResource("BoxShape3D_drbgk")
+
+[node name="Area3D" type="Area3D" parent="plateform2 _011" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8188, 0, 0)
+script = ExtResource("6_koqju")
+laser_scene = ExtResource("7_snknl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plateform2 _011/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719879, 2.00261, -5.80402)
+shape = SubResource("BoxShape3D_drbgk")
+
+[node name="Area3D" type="Area3D" parent="plateform2 _012" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8188, 0, 0)
+script = ExtResource("6_koqju")
+laser_scene = ExtResource("7_snknl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plateform2 _012/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719879, 2.00261, -5.80402)
+shape = SubResource("BoxShape3D_drbgk")
+
+[node name="Area3D" type="Area3D" parent="plateform2 _014" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8188, 0, 0)
+script = ExtResource("6_koqju")
+laser_scene = ExtResource("7_snknl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plateform2 _014/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719879, 2.00261, -5.80402)
+shape = SubResource("BoxShape3D_drbgk")
+
+[node name="Area3D" type="Area3D" parent="plateform2 _015" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8188, 0, 0)
+script = ExtResource("6_koqju")
+laser_scene = ExtResource("7_snknl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plateform2 _015/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719879, 2.00261, -5.80402)
+shape = SubResource("BoxShape3D_drbgk")
+
+[node name="PoisonZone2" type="Area3D" parent="." index="107"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1380.25, -108.957, -58.2016)
+script = ExtResource("5_7r40g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PoisonZone2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.838, 84.9268, 94.3075)
+shape = SubResource("BoxShape3D_0i73v")
+
+[node name="PoisonZone" type="Area3D" parent="." index="108"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.833, -11.0079, -29.1008)
+script = ExtResource("5_7r40g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PoisonZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 690.265, -3.33098, 28.448)
+shape = SubResource("BoxShape3D_f5f3m")
+
+[node name="vide6" parent="." index="124"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 420.87, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide7" parent="." index="125"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 486.595, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide8" parent="." index="126"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 577.717, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ki20")
+
+[node name="vide9" parent="." index="135"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 139.149, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_gx3ge")
+
+[node name="vide10" parent="." index="136"]
+transform = Transform3D(5, 0, 0, 0, -4.5, 1.74846e-06, 0, -3.93403e-07, -20, 123.705, -7.69, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_gx3ge")
+
+[node name="vide11" parent="." index="138"]
+surface_material_override/0 = SubResource("ShaderMaterial_e53s6")
+
+[node name="sol16 _001" parent="." index="139"]
+script = SubResource("GDScript_jx1bt")
+
+[node name="sol16 _002" parent="." index="140"]
+transform = Transform3D(5, 0, 0, 0, 4.5, 0, 0, 0, 20, 759.179, -3.24243, 0.410919)
+
+[node name="sol16 _003" parent="." index="141"]
+transform = Transform3D(5, 0, 0, 0, 4.5, 0, 0, 0, 20, 646.236, 40, 0)
+
+[node name="DoorTrigger" type="Area3D" parent="sol16 _003" index="1"]
+transform = Transform3D(0.0744218, 0, 0.997227, 0, 1, 0, -0.997227, 0, 0.0744218, 309.049, -1.84683, 7.47137)
+script = ExtResource("11_ytxof")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sol16 _003/DoorTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6111, -9.77792, -0.379669)
+shape = SubResource("BoxShape3D_xm1ic")
+
+[node name="DoorAnimationPlayer" type="AnimationPlayer" parent="sol16 _003/DoorTrigger" index="1"]
+root_node = NodePath("../../StaticBody3D")
+libraries = {
+"": SubResource("AnimationLibrary_2ywag")
+}
+
+[connection signal="body_entered" from="sol4/Area3D" to="sol4/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="sol4/Area3D" to="plateform2 _011/Area3D" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="plateform2 _010/Area3D" to="plateform2 _010/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="plateform2 _011/Area3D" to="plateform2 _011/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="plateform2 _012/Area3D" to="plateform2 _012/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="plateform2 _014/Area3D" to="plateform2 _014/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="plateform2 _015/Area3D" to="plateform2 _015/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="PoisonZone2" to="plateform2 _011/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="PoisonZone" to="plateform2 _011/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="sol16 _003/DoorTrigger" to="plateform2 _011/Area3D" method="_on_door_trigger_body_entered"]

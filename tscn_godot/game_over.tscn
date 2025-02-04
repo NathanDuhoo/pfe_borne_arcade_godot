@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://k4fefm3nuvgt"]
+
+[ext_resource type="Script" path="res://scripts_godot/game_over.gd" id="1_ui386"]
+[ext_resource type="Texture2D" uid="uid://56m6hp22xgj7" path="res://map/images/billygameover.jpg" id="2_cbf3y"]
+[ext_resource type="FontFile" uid="uid://cxjyogfatwmhl" path="res://fonts/BillieDEMO-Black.otf" id="2_ivmvh"]
+[ext_resource type="FontFile" uid="uid://skc6v08kdsax" path="res://fonts/ka1.ttf" id="4_lqbep"]
+[ext_resource type="Texture2D" uid="uid://cdlgvouxoxxai" path="res://map/images/images-removebg-preview.png" id="5_x1t78"]
+[ext_resource type="Texture2D" uid="uid://did27oev8adlu" path="res://map/images/maxresdefault-removebg-preview.png" id="6_a2uvy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8l740"]
+texture = ExtResource("2_cbf3y")
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 35.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.980293, 0.960159)
+script = ExtResource("1_ui386")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 42.0
+scale = Vector2(33.9798, 18.9452)
+theme_override_styles/panel = SubResource("StyleBoxTexture_8l740")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 1389.0
+offset_bottom = 806.0
+scale = Vector2(1, 0.988248)
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ivmvh")
+theme_override_font_sizes/font_size = 78
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ivmvh")
+theme_override_font_sizes/font_size = 78
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+localize_numeral_system = false
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("4_lqbep")
+theme_override_font_sizes/font_size = 50
+text = "Quit
+"
+icon_alignment = 1
+
+[node name="Restart" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+localize_numeral_system = false
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("4_lqbep")
+theme_override_font_sizes/font_size = 50
+text = "Restart
+"
+icon_alignment = 1
+
+[node name="Images-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(211, 626)
+texture = ExtResource("5_x1t78")
+
+[node name="Maxresdefault-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(679, 192)
+scale = Vector2(0.979201, 1.03102)
+texture = ExtResource("6_a2uvy")
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_button_pressed"]

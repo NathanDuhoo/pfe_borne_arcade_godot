@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dajqqiaiwfh46"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kim2x"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yjvm"]
+albedo_color = Color(0.835718, 3.22476e-06, 7.70092e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xjv0"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ExclamationPoint" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.999657, -0.0261769, 4.36922e-08, -4.37111e-08, 1.52579e-10, -1, 0.0261769, -0.999657, -1.29675e-09, 0, 0, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="ExclamationPoint"]
+material = SubResource("StandardMaterial3D_kim2x")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ExclamationPoint/CSGMesh3D"]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0.640653, 0)
+material = SubResource("StandardMaterial3D_2yjvm")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="ExclamationPoint/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.33097, 0.5)
+polygon = PackedVector2Array(1.75, 0, 1.25, 0, 1, 2, 2, 2)
+material = SubResource("StandardMaterial3D_3xjv0")

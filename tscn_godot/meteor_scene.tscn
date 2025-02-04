@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://ckphra57vti5t"]
+
+[ext_resource type="Script" path="res://scripts_godot/meteor_scene.gd" id="1_3jufj"]
+[ext_resource type="Texture2D" uid="uid://dd3l8auui4ncv" path="res://assets - blender/textures/poison.png" id="3_ehdfs"]
+[ext_resource type="Shader" path="res://shader_godot/green_lava.gdshader" id="3_yxopb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vyjv7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ahwbb"]
+render_priority = 0
+shader = ExtResource("3_yxopb")
+shader_parameter/time_speed = 1.0
+shader_parameter/distortion_strength = 0.2
+shader_parameter/glow_intensity = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvgpo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_aoqkf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sbsx1"]
+render_priority = 0
+shader = ExtResource("3_yxopb")
+shader_parameter/time_speed = 1.0
+shader_parameter/distortion_strength = 0.2
+shader_parameter/glow_intensity = 2.0
+shader_parameter/lava_texture = ExtResource("3_ehdfs")
+shader_parameter/noise_texture = ExtResource("3_ehdfs")
+
+[sub_resource type="BoxMesh" id="BoxMesh_dcnnw"]
+material = SubResource("ShaderMaterial_sbsx1")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+collision_mask = 256
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_3jufj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+shape = SubResource("SphereShape3D_vyjv7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("ShaderMaterial_ahwbb")
+material_overlay = SubResource("ShaderMaterial_rvgpo")
+mesh = SubResource("SphereMesh_aoqkf")
+skeleton = NodePath("../../..")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26366, 0)
+amount = 40
+mesh = SubResource("BoxMesh_dcnnw")
+emission_shape = 1
+emission_sphere_radius = 2.54
+gravity = Vector3(0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
