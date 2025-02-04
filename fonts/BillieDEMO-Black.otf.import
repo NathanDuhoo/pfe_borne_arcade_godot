@@ -3,12 +3,11 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bu5n4t0re80hb"
-path="res://.godot/imported/BillieDEMO-Black.otf-4a7f6e22c788ab9fc4b14887aa20490f.fontdata"
+valid=false
 
 [deps]
 
 source_file="res://fonts/BillieDEMO-Black.otf"
-dest_files=["res://.godot/imported/BillieDEMO-Black.otf-4a7f6e22c788ab9fc4b14887aa20490f.fontdata"]
 
 [params]
 

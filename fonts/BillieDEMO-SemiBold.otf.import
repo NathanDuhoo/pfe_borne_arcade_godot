@@ -3,12 +3,11 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dav5mdworar86"
-path="res://.godot/imported/BillieDEMO-SemiBold.otf-da307e668e7487929fbf5e0967ced516.fontdata"
+valid=false
 
 [deps]
 
 source_file="res://fonts/BillieDEMO-SemiBold.otf"
-dest_files=["res://.godot/imported/BillieDEMO-SemiBold.otf-da307e668e7487929fbf5e0967ced516.fontdata"]
 
 [params]
 

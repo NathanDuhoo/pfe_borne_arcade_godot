@@ -3,12 +3,11 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://0qmrmkid6ol1"
-path="res://.godot/imported/BillieDEMORegular.otf-6c1a2c858152425b06b2bfd8d69e4061.fontdata"
+valid=false
 
 [deps]
 
 source_file="res://fonts/BillieDEMORegular.otf"
-dest_files=["res://.godot/imported/BillieDEMORegular.otf-6c1a2c858152425b06b2bfd8d69e4061.fontdata"]
 
 [params]
 

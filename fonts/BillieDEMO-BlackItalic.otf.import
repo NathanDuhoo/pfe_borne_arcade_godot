@@ -3,12 +3,11 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ca6jqguumvol7"
-path="res://.godot/imported/BillieDEMO-BlackItalic.otf-e85a4abdc496f207c4ee8c8159f9c1b0.fontdata"
+valid=false
 
 [deps]
 
 source_file="res://fonts/BillieDEMO-BlackItalic.otf"
-dest_files=["res://.godot/imported/BillieDEMO-BlackItalic.otf-e85a4abdc496f207c4ee8c8159f9c1b0.fontdata"]
 
 [params]
 

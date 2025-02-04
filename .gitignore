@@ -1,9 +1,9 @@
 # Ignorer les fichiers temporaires et de cache de Godot
-.import/
-.godot/
-.mono/
-export.cfg
-export_presets.cfg
+!.import/
+!.godot/
+!.mono/
+!export.cfg
+!export_presets.cfg
 
 # Ignorer les fichiers Blender temporaires
 *.blend1
