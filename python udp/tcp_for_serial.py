@@ -161,4 +161,4 @@ finally:
     ser_due.close()
     client_sock.close()
     sock.close()
-    print("(python) GPIO, port série et connexion TCP libérés.")
+    print("(python) GPIO, port série et connexion TCP libérés.")
