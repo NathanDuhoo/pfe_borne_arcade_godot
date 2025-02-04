@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmdbgdd2js3ch"
+uid="uid://bxnswgoc58mi3"
 path.s3tc="res://.godot/imported/player_ombre.png-865d6dba6ecedfa5a85132d95606dc53.s3tc.ctex"
 path.etc2="res://.godot/imported/player_ombre.png-865d6dba6ecedfa5a85132d95606dc53.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "6556bb8f97e851c2e21533ffecfb421a"
 }
 
 [deps]

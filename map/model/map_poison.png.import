@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1skhrx6ecvyg"
+uid="uid://70dpc0u6i47t"
 path.s3tc="res://.godot/imported/map_poison.png-57112c029ce08e883c53a792528987cb.s3tc.ctex"
 path.etc2="res://.godot/imported/map_poison.png-57112c029ce08e883c53a792528987cb.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "17089c004db247e1435dedf6f100eeaa"
 }
 
 [deps]

@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crfytqou1cny0"
+uid="uid://d1qlq6kacyl2s"
 path.s3tc="res://.godot/imported/map_fumee.png-da5fa6c23436706b4d6dc6dd0cedbe80.s3tc.ctex"
 path.etc2="res://.godot/imported/map_fumee.png-da5fa6c23436706b4d6dc6dd0cedbe80.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "44ecf4c9389433aad5c2871b511c69b5"
 }
 
 [deps]

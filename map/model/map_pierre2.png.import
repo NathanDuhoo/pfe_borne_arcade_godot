@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c37t6raystlm1"
+uid="uid://byjd7g11qg00i"
 path.s3tc="res://.godot/imported/map_pierre2.png-65b2a0118085aec17c14f17992c8da13.s3tc.ctex"
 path.etc2="res://.godot/imported/map_pierre2.png-65b2a0118085aec17c14f17992c8da13.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "9faa1181977016c69af783b3cd8c1396"
 }
 
 [deps]

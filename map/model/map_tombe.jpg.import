@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7dpwlra4qp8"
+uid="uid://djv4uxspmo5nj"
 path.s3tc="res://.godot/imported/map_tombe.jpg-07523d5f02eac462439478a2bd369cbf.s3tc.ctex"
 path.etc2="res://.godot/imported/map_tombe.jpg-07523d5f02eac462439478a2bd369cbf.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "8efb6496638df813698fccd4aa9842c6"
 }
 
 [deps]

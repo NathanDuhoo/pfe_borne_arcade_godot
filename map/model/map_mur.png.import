@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uio6kli6equ8"
+uid="uid://ccusi1ebp3ykd"
 path.s3tc="res://.godot/imported/map_mur.png-a6f96a1d50e9adf0b8a3ca9fc20171fd.s3tc.ctex"
 path.etc2="res://.godot/imported/map_mur.png-a6f96a1d50e9adf0b8a3ca9fc20171fd.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "fd0ac6ca94224237ce8293bd0331987c"
 }
 
 [deps]

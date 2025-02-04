@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdd4b6s8rbfho"
+uid="uid://d1lml8vnuufon"
 path.s3tc="res://.godot/imported/map_bonbon.png-9c1b8923c4721608b661825a5207f008.s3tc.ctex"
 path.etc2="res://.godot/imported/map_bonbon.png-9c1b8923c4721608b661825a5207f008.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "19662484e5662795c3f97ab130fc5026"
 }
 
 [deps]

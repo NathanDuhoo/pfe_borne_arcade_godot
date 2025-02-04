@@ -19,7 +19,7 @@ void fragment() {
 
     // Effet de pulsation sur l'émission
     float pulse = sin(time * 2.0) * 0.5 + 0.5;
-    
+
     ALBEDO = lava_color.rgb;
     EMISSION = lava_color.rgb * (glow_intensity + pulse);
 }

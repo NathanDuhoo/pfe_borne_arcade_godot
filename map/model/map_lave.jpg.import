@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1o5yiakru4y6"
+uid="uid://bbi0uhiv1rpej"
 path.s3tc="res://.godot/imported/map_lave.jpg-6ee38ce44625a6a14fd9f3172928ec17.s3tc.ctex"
 path.etc2="res://.godot/imported/map_lave.jpg-6ee38ce44625a6a14fd9f3172928ec17.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "64783e566b1a9dd5e6b9399b99df391a"
 }
 
 [deps]

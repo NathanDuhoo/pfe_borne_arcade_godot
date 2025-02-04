@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ppivha2yhrwi"
+uid="uid://boma5eykx3bkv"
 path.s3tc="res://.godot/imported/map_tapis.png-e2e31f2976ffad10b61064233d8059ee.s3tc.ctex"
 path.etc2="res://.godot/imported/map_tapis.png-e2e31f2976ffad10b61064233d8059ee.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "02c5b4e5b200eb21529439660d1851d9"
 }
 
 [deps]

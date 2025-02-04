@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfsde5bxeqxy3"]
 
 [ext_resource type="Script" path="res://scripts_godot/player.gd" id="1_1i8ex"]
-[ext_resource type="PackedScene" uid="uid://cqep5s6p06oq7" path="res://art/player.glb" id="1_t7rgs"]
+[ext_resource type="PackedScene" uid="uid://cch4gaw0kn8kf" path="res://art/player.glb" id="1_t7rgs"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cbksk"]
 radius = 2.0

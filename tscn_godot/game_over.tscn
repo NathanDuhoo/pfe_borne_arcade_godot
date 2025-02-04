@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://k4fefm3nuvgt"]
 
 [ext_resource type="Script" path="res://scripts_godot/game_over.gd" id="1_ui386"]
-[ext_resource type="Texture2D" uid="uid://56m6hp22xgj7" path="res://map/images/billygameover.jpg" id="2_cbf3y"]
-[ext_resource type="FontFile" uid="uid://cxjyogfatwmhl" path="res://fonts/BillieDEMO-Black.otf" id="2_ivmvh"]
-[ext_resource type="FontFile" uid="uid://skc6v08kdsax" path="res://fonts/ka1.ttf" id="4_lqbep"]
-[ext_resource type="Texture2D" uid="uid://cdlgvouxoxxai" path="res://map/images/images-removebg-preview.png" id="5_x1t78"]
-[ext_resource type="Texture2D" uid="uid://did27oev8adlu" path="res://map/images/maxresdefault-removebg-preview.png" id="6_a2uvy"]
+[ext_resource type="Texture2D" uid="uid://nv3jy00fokq7" path="res://map/images/billygameover.jpg" id="2_cbf3y"]
+[ext_resource type="FontFile" uid="uid://bu5n4t0re80hb" path="res://fonts/BillieDEMO-Black.otf" id="2_ivmvh"]
+[ext_resource type="FontFile" uid="uid://yvcqibxf04b5" path="res://fonts/ka1.ttf" id="4_lqbep"]
+[ext_resource type="Texture2D" uid="uid://ccdmgt1hskwt2" path="res://map/images/images-removebg-preview.png" id="5_x1t78"]
+[ext_resource type="Texture2D" uid="uid://b6xrl4x4xqkat" path="res://map/images/maxresdefault-removebg-preview.png" id="6_a2uvy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8l740"]
 texture = ExtResource("2_cbf3y")

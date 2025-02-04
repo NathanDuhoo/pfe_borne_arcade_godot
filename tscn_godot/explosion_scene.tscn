@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts_godot/explosion_scene.gd" id="1_5lha1"]
 
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_kvnjb"]
 
 [node name="Node3D" type="Node3D"]

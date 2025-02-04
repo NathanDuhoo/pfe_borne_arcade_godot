@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfkdyt2uftt8k"
+uid="uid://b7xhj771bgm5w"
 path.s3tc="res://.godot/imported/map_porte.png-efd726e774d008effdc609de7aa7e265.s3tc.ctex"
 path.etc2="res://.godot/imported/map_porte.png-efd726e774d008effdc609de7aa7e265.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "8d126f01ef874b1202fa217d83578dcd"
 }
 
 [deps]

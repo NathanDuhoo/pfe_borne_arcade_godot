@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://ca1q3x23fu1ah"]
 
 [ext_resource type="Script" path="res://scripts_godot/menu.gd" id="1_lnyh8"]
-[ext_resource type="Texture2D" uid="uid://dr11v1payfrr4" path="res://map/images/billybustup.png" id="2_a3mf1"]
-[ext_resource type="FontFile" uid="uid://skc6v08kdsax" path="res://fonts/ka1.ttf" id="3_f3sxo"]
-[ext_resource type="FontFile" uid="uid://cbjc17x3eda5x" path="res://fonts/GrapeSoda.ttf" id="4_duhu3"]
-[ext_resource type="Texture2D" uid="uid://cdlgvouxoxxai" path="res://map/images/images-removebg-preview.png" id="5_ymyjc"]
+[ext_resource type="Texture2D" uid="uid://cnb6n5xwnxek7" path="res://map/images/billybustup.png" id="2_a3mf1"]
+[ext_resource type="FontFile" uid="uid://yvcqibxf04b5" path="res://fonts/ka1.ttf" id="3_f3sxo"]
+[ext_resource type="FontFile" uid="uid://bilp2fw3at4xw" path="res://fonts/GrapeSoda.ttf" id="4_duhu3"]
+[ext_resource type="Texture2D" uid="uid://ccdmgt1hskwt2" path="res://map/images/images-removebg-preview.png" id="5_ymyjc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np6g3"]
 texture = ExtResource("2_a3mf1")
