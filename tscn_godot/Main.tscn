@@ -581,7 +581,7 @@ script = ExtResource("7_6gmvb")
 [node name="Window" type="Window" parent="."]
 auto_translate_mode = 1
 own_world_3d = true
-mode = 3
+mode = 4
 position = Vector2i(0, 48)
 size = Vector2i(1366, 768)
 
