@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b8ogd276gs27" path="res://assets - blender/textures/lave.jpg" id="9_q5gun"]
 [ext_resource type="Script" path="res://scripts_godot/door_trigger.gd" id="11_ytxof"]
 [ext_resource type="Script" path="res://scripts_godot/cage.gd" id="12_roulp"]
-[ext_resource type="Script" path="res://tscn_godot/win_zone.gd" id="15_fcyr0"]
+[ext_resource type="Script" path="res://scripts_godot/win_zone.gd" id="15_fcyr0"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_28lg0"]
 frequency = 0.0048
